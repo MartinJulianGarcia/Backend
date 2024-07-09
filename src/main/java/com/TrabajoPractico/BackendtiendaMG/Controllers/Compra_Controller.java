@@ -1,7 +1,7 @@
 package com.TrabajoPractico.BackendtiendaMG.Controllers;
 
 import com.TrabajoPractico.BackendtiendaMG.model.*;
-
+import com.TrabajoPractico.BackendtiendaMG.dto.newCompraDTO;
 import com.TrabajoPractico.BackendtiendaMG.servicios.Articulo_metodos;
 
 
@@ -24,12 +24,13 @@ public class Compra_Controller {
     private Compra_metodos compraMetodos;
 
     @PostMapping(value = "")
-    public Compra createCompra(@RequestBody Compra c) { // @RequestBody indica que el parametro viene en el cuerpo del request, se mapea automaticamente a un objeto Libro
-        return compraMetodos.CrearCompra(c);
+    public Compra createCompra(@RequestBody newCompraDTO c) { // @RequestBody indica que el parametro viene en el cuerpo del request, se mapea automaticamente a un objeto Libro
+        return compraMetodos.CrearCompra(c.getImporte(), c.getIdUsuario(), c.getArticulos());
     }
 
+
     @GetMapping(value = "/usuario/{usuario}")
-    public List<Compra> getArticuloByusuario(@PathVariable Usuario usuario) {
+    public List<Compra> getComprasByusuario(@PathVariable Usuario usuario) {
 
         return compraMetodos.getCompraByusuario(usuario);
     }

@@ -7,6 +7,8 @@ import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
@@ -18,13 +20,18 @@ public class SpringSecurityConfig {
                 .csrf((csrf) -> csrf.disable())
                 .authorizeHttpRequests((authorize) -> authorize
                         .requestMatchers(HttpMethod.GET, "api/Articulo/**").permitAll()
-                        .requestMatchers("api/Articulo/**").authenticated()
-                        .anyRequest().authenticated()
+                        .requestMatchers(HttpMethod.POST,"api/Usuario/**").permitAll()
+                        .anyRequest().authenticated()  //authenticated() NO FUNCIONA
                 )
                 .httpBasic(Customizer.withDefaults())
                 .sessionManagement((sessionManagement) -> sessionManagement
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 );
         return http.build();
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 }

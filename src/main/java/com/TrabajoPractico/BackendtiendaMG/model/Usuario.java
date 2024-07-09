@@ -15,10 +15,10 @@ import java.util.List;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public abstract class Usuario implements UserDetails
     {
-        public Usuario (Long id, String Nombreusuario, String password, String mail)
+        public Usuario (Long id, String username, String password, String mail)
         {
             this.id=id;
-            this.username=Nombreusuario;
+            this.username=username;
             this.password=password;
             this.mail=mail;
             miscompras=new ArrayList<Compra>();
@@ -88,30 +88,30 @@ public abstract class Usuario implements UserDetails
             this.password = password;
         }
 
-        @Override
-        public boolean isAccountNonExpired() {
-            return true;
-        }
+//        @Override
+//        public boolean isAccountNonExpired() {
+//            return true;
+//        }
+//
+//        @Override
+//        public boolean isAccountNonLocked() {
+//            return true;
+//        }
+//
+//        @Override
+//        public boolean isCredentialsNonExpired() {
+//            return true;
+//        }
+//
+//        @Override
+//        public boolean isEnabled() {
+//            return true;
+//        }
 
-        @Override
-        public boolean isAccountNonLocked() {
-            return true;
-        }
-
-        @Override
-        public boolean isCredentialsNonExpired() {
-            return true;
-        }
-
-        @Override
-        public boolean isEnabled() {
-            return true;
-        }
-
-        @Override
-        public Collection<? extends GrantedAuthority> getAuthorities() {
-            List<GrantedAuthority> authorities = new ArrayList<>();
-            authorities.add(new SimpleGrantedAuthority("CLIENTE"));
-            return authorities;
-        }
+//        @Override
+//        public Collection<? extends GrantedAuthority> getAuthorities() {
+//            List<GrantedAuthority> authorities = new ArrayList<>();
+//            authorities.add(new SimpleGrantedAuthority("CLIENTE"));
+//            return authorities;
+//        }
     }

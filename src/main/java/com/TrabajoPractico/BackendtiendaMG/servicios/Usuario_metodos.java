@@ -12,9 +12,9 @@ public interface Usuario_metodos {
 
     public void ModificarUsuario();
 
-    Admin createAdmin(Admin admin);
+    Admin crearAdmin(Admin admin);
 
-    Cliente createCliente(Cliente cliente);
+    Cliente crearCliente(Cliente cliente);
 
     Usuario updateUsuario(Usuario usuario);
 

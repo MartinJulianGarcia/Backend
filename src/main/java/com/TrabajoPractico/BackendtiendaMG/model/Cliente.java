@@ -11,7 +11,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
-@DiscriminatorValue("CLIENTE")
+//@DiscriminatorValue("CLIENTE")
 public class Cliente extends Usuario
 {
     public Cliente (Long id, String Nombreusuario, String password, String mail)

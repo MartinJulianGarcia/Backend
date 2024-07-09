@@ -24,22 +24,24 @@ public class Usuario_metodos_imp implements Usuario_metodos{
     @Autowired
     private Usuario_repositorio Usuario_repositorio;
 
-   // @Autowired
-   // private PasswordEncoder passwordEncoder;
+   @Autowired
+  private PasswordEncoder passwordEncoder;
 
     public void ModificarUsuario(){};
 
     @Override
     @Transactional
-    public Cliente createCliente(Cliente cliente) {
-        cliente.setPassword(cliente.getPassword());   //passwordEncoder.encode( No funciona
+    public Cliente crearCliente(Cliente cliente) {
+       // cliente.setPassword(cliente.getPassword());   //passwordEncoder.encode( No funciona
+        cliente.setPassword(passwordEncoder.encode(cliente.getPassword()));
         return Usuario_repositorio.save(cliente);
     }
 
     @Override
     @Transactional
-    public Admin createAdmin(Admin admin) {
-        admin.setPassword(admin.getPassword());  //passwordEncoder.encode( No funciona)
+    public Admin crearAdmin(Admin admin) {
+     //  admin.setPassword.passwordEncoder.encode(admin.getPassword());  //passwordEncoder.encode( No funciona)
+        admin.setPassword(passwordEncoder.encode(admin.getPassword()));
         return Usuario_repositorio.save(admin);
     }
 

@@ -12,7 +12,7 @@ import java.util.List;
 
 
 @Entity
-@DiscriminatorValue("ADMIN")
+//@DiscriminatorValue("ADMIN")
 public class Admin extends Usuario
 {
     public Admin (Long id, String Nombreusuario, String password, String mail)
@@ -52,10 +52,10 @@ public class Admin extends Usuario
         return true;
     }
 
-    public Long Returncodigo()
-    {
-        return id;
-    }
+//    public Long Returncodigo()
+//    {
+//        return id;
+//    }
 
 
 

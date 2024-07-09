@@ -3,7 +3,9 @@ package com.TrabajoPractico.BackendtiendaMG.model;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import jakarta.persistence.*;
+import org.springframework.cglib.core.Local;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -11,15 +13,15 @@ import java.util.List;
 @Entity
 public class Compra
 {
-    public Compra ( Date fecha, int importe,  String mediodepago, long id, List<Articulo> arts)
+    public Compra (LocalDate fecha, int importe, String mediodepago, List<Articulo> arts, Usuario usuario)
     {
 
         this.fecha=fecha;
         this.importe=importe;
         this.mediodepago=mediodepago;
-        this.id=id;
-        articulos=arts;
-        this.usuario=new Cliente();
+        //this.id=id;
+        this.articulos=arts;
+        this.usuario=usuario;
 
     }
 
@@ -35,14 +37,14 @@ public class Compra
 
 
     @ManyToOne
-    @JoinColumn(name = "id_usuario", nullable = false)
+    @JoinColumn(name = "id_usuario")
     Usuario usuario;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
 
-    Date fecha;
+    LocalDate fecha;
     int importe;
     String mediodepago;
 
@@ -54,11 +56,11 @@ public class Compra
         this.id = id;
     }
 
-    public Date getFecha() {
+    public LocalDate getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
 
