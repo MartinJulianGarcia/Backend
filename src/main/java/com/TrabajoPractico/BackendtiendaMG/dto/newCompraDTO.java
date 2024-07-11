@@ -11,12 +11,12 @@ import java.util.List;
 public class newCompraDTO {
 
     private int importe;
-    private int idusuario;
+    private String nombreusuario;
     private List<Articulo> articulos;
 
-    public newCompraDTO(int importe, int idusuario, List<Articulo> articulos) {
+    public newCompraDTO(int importe, String nombreusuario, List<Articulo> articulos) {
         this.importe = importe;
-        this.idusuario = idusuario;
+        this.nombreusuario = nombreusuario;
         this.articulos = articulos;
     }
 
@@ -28,12 +28,12 @@ public class newCompraDTO {
         this.importe = importe;
     }
 
-    public int getIdUsuario() {
-        return idusuario;
+    public String getNombreUsuario() {
+        return nombreusuario;
     }
 
-    public void setIdusuario(int usuario) {
-        this.idusuario = idusuario;
+    public void setNombreUsuario(int usuario) {
+        this.nombreusuario = nombreusuario;
     }
 
     public List<Articulo> getArticulos() {

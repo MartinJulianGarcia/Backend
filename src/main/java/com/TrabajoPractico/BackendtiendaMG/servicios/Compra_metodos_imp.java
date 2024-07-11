@@ -22,8 +22,8 @@ public class Compra_metodos_imp implements Compra_metodos {
     @Autowired
     private Usuario_repositorio usuarioRepositorio;
 
-    public Compra CrearCompra(int importe, long idusuario, List<Articulo> articulos) {
-        Optional<Usuario> optionalUsuario= usuarioRepositorio.findById(idusuario);
+    public Compra CrearCompra(int importe, String nombreusuario, List<Articulo> articulos) {
+        Optional<Usuario> optionalUsuario= usuarioRepositorio.findByUsername(nombreusuario);
         if (optionalUsuario.isPresent()) {
             Usuario usuario1 = optionalUsuario.get();
             // usar el objeto usuario

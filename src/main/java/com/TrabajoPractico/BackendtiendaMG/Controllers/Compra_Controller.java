@@ -25,7 +25,7 @@ public class Compra_Controller {
 
     @PostMapping(value = "")
     public Compra createCompra(@RequestBody newCompraDTO c) { // @RequestBody indica que el parametro viene en el cuerpo del request, se mapea automaticamente a un objeto Libro
-        return compraMetodos.CrearCompra(c.getImporte(), c.getIdUsuario(), c.getArticulos());
+        return compraMetodos.CrearCompra(c.getImporte(), c.getNombreUsuario(), c.getArticulos());
     }
 
 

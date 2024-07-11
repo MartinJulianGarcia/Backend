@@ -10,6 +10,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class Usuario_metodos_imp implements Usuario_metodos{
@@ -61,6 +62,19 @@ public class Usuario_metodos_imp implements Usuario_metodos{
         } catch (Exception e) {
             return false;
         }
+    }
+    @Override
+    @Transactional
+    public Usuario getByUsername(String username) {
+        Optional<Usuario> optionalUsuario = Usuario_repositorio.findByUsername(username);
+        if (optionalUsuario.isPresent()) {
+            Usuario usuario = optionalUsuario.get();
+            return usuario;
+        } else {
+            throw new RuntimeException();
+        }
+
+
     }
 
 }

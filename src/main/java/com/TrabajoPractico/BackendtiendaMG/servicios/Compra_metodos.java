@@ -13,7 +13,7 @@ public interface Compra_metodos {
 
 
 
-    public Compra CrearCompra(int importe, long idusuario, List<Articulo> articulos);
+    public Compra CrearCompra(int importe, String nombreusuario, List<Articulo> articulos);
 
    // public boolean eliminarcompra(Compra c);
 

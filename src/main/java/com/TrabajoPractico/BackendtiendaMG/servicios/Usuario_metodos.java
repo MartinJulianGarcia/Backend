@@ -20,7 +20,7 @@ public interface Usuario_metodos {
 
     boolean deleteUsuario(Usuario usuario);
 
-
+    Usuario getByUsername(String username);
 
 
 

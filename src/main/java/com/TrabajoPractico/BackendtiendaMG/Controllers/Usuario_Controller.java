@@ -29,6 +29,12 @@ public class Usuario_Controller {
     public Usuario CrearAdmin(@RequestBody Admin a) { return usuarioMetodos.crearAdmin(a);
     }
 
+    @GetMapping(value = "username/{username}")
+    public Usuario getByusername(@PathVariable String username) {
+        return usuarioMetodos.getByUsername(username);
+    }
+
+
 //    // PUT ../api/usuario
 //    @PutMapping(value = "")
 //    public Usuario updateUsuario(@RequestBody Usuario usuario) {
