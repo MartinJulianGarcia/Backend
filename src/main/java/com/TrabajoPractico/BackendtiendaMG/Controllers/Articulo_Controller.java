@@ -55,9 +55,9 @@ public class Articulo_Controller {
      return articuloMetodos.CrearArticulo(art);
    }
 
-    @DeleteMapping(value = "")
-    public boolean eliminarart(@RequestBody Articulo art) {
-        return articuloMetodos.eliminarart(art);
+    @DeleteMapping(value = "/{nombreart}")
+    public boolean eliminarart(@PathVariable String nombreart) {
+        return articuloMetodos.eliminarart(nombreart);
     }
 
 

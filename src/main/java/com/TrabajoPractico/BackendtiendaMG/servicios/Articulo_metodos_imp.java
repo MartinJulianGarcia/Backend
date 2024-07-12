@@ -29,10 +29,11 @@ public class Articulo_metodos_imp implements Articulo_metodos {
         return a;
     }
 
-    public boolean eliminarart(Articulo a) {
-        if (a == null || a.getId() == null) {
+    public boolean eliminarart(String nombreart) {
+        if (nombreart == null ) {
             return false;
         }
+        Articulo a= this.Articulo_repositorio.findBynombre(nombreart);
         try {
             this.Articulo_repositorio.delete(a);
             return true;

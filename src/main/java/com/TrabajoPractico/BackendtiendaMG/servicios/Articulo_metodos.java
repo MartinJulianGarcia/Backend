@@ -10,7 +10,7 @@ public interface Articulo_metodos {
 
     public Articulo CrearArticulo(Articulo a);
 
-    public boolean eliminarart(Articulo a);
+    public boolean eliminarart(String nombreart);
 
     public void IngresarStock(Articulo a);
 

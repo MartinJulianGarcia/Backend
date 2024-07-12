@@ -15,7 +15,7 @@ Articulo_repositorio extends CrudRepository <Articulo, Long> {
    // @Override
     //Optional findById(Long id);
 
-    Articulo findBynombre (String nombre);
+    Articulo findBynombre (String nombreart);
 
     List<Articulo> findBytemporada (String temporada);
 
