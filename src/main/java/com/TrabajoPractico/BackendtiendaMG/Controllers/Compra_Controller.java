@@ -29,10 +29,10 @@ public class Compra_Controller {
     }
 
 
-    @GetMapping(value = "/usuario/{usuario}")
-    public List<Compra> getComprasByusuario(@PathVariable Usuario usuario) {
+    @GetMapping(value = "/usuario/{username}")
+    public List<Compra> getComprasByusuario(@PathVariable String username) {
 
-        return compraMetodos.getCompraByusuario(usuario);
+        return compraMetodos.getCompraByusuario(username);
     }
 
 

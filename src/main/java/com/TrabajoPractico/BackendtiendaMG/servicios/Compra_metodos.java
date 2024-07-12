@@ -17,7 +17,7 @@ public interface Compra_metodos {
 
    // public boolean eliminarcompra(Compra c);
 
-    List<Compra> getCompraByusuario (Usuario usuario);
+    List<Compra> getCompraByusuario (String username);
 
 
 }

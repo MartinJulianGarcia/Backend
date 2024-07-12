@@ -48,9 +48,15 @@ public class Compra_metodos_imp implements Compra_metodos {
 //    }
 
     @Override
-    public List<Compra> getCompraByusuario(Usuario u) {
-       return Compra_repositorio.findByusuario(u);
+    public List<Compra> getCompraByusuario(String username) {
+        Optional<Usuario> optionalUsuario = usuarioRepositorio.findByUsername(username);
+        if (optionalUsuario.isPresent()) {
+            Usuario usuario1 = optionalUsuario.get();
+            // usar el objeto usuario
+            return Compra_repositorio.findByusuario(usuario1);
 
+        }
+        else {throw new RuntimeException();}
     }
 
     // public boolean eliminarcompra(compra c);
