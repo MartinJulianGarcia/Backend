@@ -21,6 +21,9 @@ public class SpringSecurityConfig {
                 .authorizeHttpRequests((authorize) -> authorize
                         .requestMatchers(HttpMethod.GET, "api/Articulo/**").permitAll()
                         .requestMatchers(HttpMethod.POST,"api/Usuario/**").permitAll()
+                        .requestMatchers(HttpMethod.PUT,"api/Articulo/**").hasAuthority("ADMIN")
+                        .requestMatchers(HttpMethod.POST,"api/Articulo/**").hasAuthority("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE,"api/Articulo/**").hasAuthority("ADMIN")
                         .anyRequest().authenticated()  //authenticated() NO FUNCIONA
                 )
                 .httpBasic(Customizer.withDefaults())
