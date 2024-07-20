@@ -60,5 +60,10 @@ public class Articulo_Controller {
         return articuloMetodos.eliminarart(nombreart);
     }
 
+    @PutMapping(path = "")
+    public Articulo updateArticulo( @RequestBody Articulo art ) {
+        return articuloMetodos.UpdateArticulo(art);
+    }
+
 
 }

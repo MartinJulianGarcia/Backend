@@ -18,7 +18,7 @@ public interface Articulo_metodos {
 
     public void ModificarUsuario();
 
-    public void ModificarArticulo();
+    public Articulo UpdateArticulo( Articulo art);
 
     Articulo getArticuloBynombre (String nombre);
 

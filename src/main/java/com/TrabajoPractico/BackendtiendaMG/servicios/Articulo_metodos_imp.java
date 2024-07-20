@@ -50,7 +50,30 @@ public class Articulo_metodos_imp implements Articulo_metodos {
 
    public void ModificarUsuario(){};
 
-   public void ModificarArticulo(){};
+   public Articulo UpdateArticulo(Articulo art)
+   {
+       if (art.getNombre() == null ) {
+           throw new RuntimeException();
+       }
+       Articulo a= this.Articulo_repositorio.findBynombre(art.getNombre());
+       if (a!=null) {
+           try {
+               a.setPrecio(art.getPrecio());
+               a.setStock(art.getStock());
+               a.setTemporada(art.getTemporada());
+               a.setTipo(art.getTipo());
+
+               this.Articulo_repositorio.save(a);
+               return a;
+           } catch (Exception e) {
+               throw new RuntimeException();
+           }
+       }
+       else {
+           throw new RuntimeException();
+       }
+
+   }
 
     public Articulo getArticuloBynombre(String nombre){
 
